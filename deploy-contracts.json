@@ -2,19 +2,19 @@
     {
         "contractName": "PMLand",
         "chainId": "4002",
-        "address": "0x8c5F2E80c5ac375eF24f313421d238fC0205FeBb",
+        "address": "0x516EA2E12CADa2a03e4F72e2B5791E99f3f15253",
         "netName": "ftmtest"
     },
     {
         "contractName": "PMLandMint",
         "chainId": "80001",
-        "address": "0x41588E7eaC24Ed27ab887C1BaB984A3B561b4c73",
+        "address": "0x199c86d01FFef88Ed3C350225d9908dBc15ef3f8",
         "netName": "matictest"
     },
     {
         "contractName": "PMLandPawnshop",
         "chainId": "80001",
-        "address": "0xd7374bDB43d703Fb10a08033Cef9d79c8f4332cE",
+        "address": "0x82983Bc30F2436425Ef5FC50cFae22D19985DD2b",
         "netName": "matictest"
     }
 ]
