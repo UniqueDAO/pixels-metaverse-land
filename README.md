@@ -1,0 +1,1 @@
+Pixels Metaverse Land: Supports LayerZero cross-chain land NFT, It is the cornerstone of Pixels Metaverse, around which all action takes place.
