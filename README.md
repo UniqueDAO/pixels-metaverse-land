@@ -1,5 +1,22 @@
 Pixels Metaverse Land: Supports LayerZero cross-chain land NFT, It is the cornerstone of Pixels Metaverse, around which all action takes place.
 
+
+## What is LayerZero
+Omnichain communication, interoperability, decentralized infrastructure
+[LayerZero](https://layerzero.network/) is an omnichain interoperability protocol designed for lightweight message passing across chains. LayerZero provides authentic and guaranteed message delivery with configurable trustlessness.
+
+For more information, see 
+
+[LayerZero- An Omnichain Interoperability Protocol](https://medium.com/layerzero-official/layerzero-an-omnichain-interoperability-protocol-b43d2ae975b6)
+
+[Layerzero Labs：普及全链资产，抢占多链生态核心](https://www.ccvalue.cn/article/1404922.html)
+
+[LayerZero — A Deep Dive](https://blog.li.fi/layerzero-a-deep-dive-6a46555967f5)
+
+[Whitepaper](https://layerzero.network/pdf/LayerZero_Whitepaper_Release.pdf)
+
+[LayerZero Docs](https://layerzero.gitbook.io/docs/)
+
 ### 0. Set up the NFT distribution chain
 Go to the [config](./cross/config.ts) page and set the name of the chain to which the NFT is issued
 ```
