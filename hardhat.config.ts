@@ -8,9 +8,15 @@ import "hardhat-gas-reporter";
 import "@nomiclabs/hardhat-ethers";
 import "hardhat-deploy";
 import "solidity-coverage";
-import "./cross/index.ts";
+import "./handle/cross/index.ts";
 
 dotenv.config();
+
+// set proxy
+const proxyUrl = 'http://127.0.0.1:7890';   // change to yours, With the global proxy enabled, change the proxyUrl to your own proxy link. The port may be different for each client.
+const { ProxyAgent, setGlobalDispatcher } = require("undici");
+const proxyAgent = new ProxyAgent(proxyUrl);
+setGlobalDispatcher(proxyAgent);
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -27,8 +33,13 @@ task("accounts", "Prints the list of accounts", async (_, hre) => {
 const GWEI = 1000000000;
 const accounts = process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
 
+const defaultNetwork = "hardhat";
 const config: HardhatUserConfig = {
+  defaultNetwork,
   networks: {
+    localhost: {
+      url: "http://localhost:8545",
+    },
     matictest: {
       url: "https://rpc.ankr.com/polygon_mumbai",
       accounts: accounts,
@@ -79,7 +90,7 @@ const config: HardhatUserConfig = {
     }
   },
   solidity: {
-    version: "0.8.4",
+    version: "0.8.19",
     settings: {
       optimizer: {
         enabled: true,

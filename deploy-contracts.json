@@ -1,8 +1,20 @@
 [
     {
         "contractName": "PMLand",
+        "chainId": "43113",
+        "address": "0xda584Bab98543432dE64b63e3b5eea77768db302",
+        "netName": "avaxtest"
+    },
+    {
+        "contractName": "PMLand",
         "chainId": "4002",
         "address": "0x516EA2E12CADa2a03e4F72e2B5791E99f3f15253",
+        "netName": "ftmtest"
+    },
+    {
+        "contractName": "PixelsMetaverse",
+        "chainId": "4002",
+        "address": "0xFDA44E816df1A0717C93E24a21Bf6b7817827bED",
         "netName": "ftmtest"
     },
     {

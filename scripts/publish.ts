@@ -1,7 +1,10 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
+const pmlGraphDir = "../pml-subgraph";
+const pmGraphDir = "../pm-subgraph";
 const deploymentsDir = "./deployments";
+const pmlContractsName = ["PMLandPawnshop", "PMLand", "PMLandMint"]
 
 function publishContract(contractName: any, networkName: any) {
   let data = fs
@@ -10,7 +13,37 @@ function publishContract(contractName: any, networkName: any) {
   let chainId = fs
     .readFileSync(`${deploymentsDir}/${networkName}/.chainId`)
     .toString();
+
   let contract = JSON.parse(data);
+  const graphDir = pmlContractsName.includes(contractName) ? pmlGraphDir : pmGraphDir;
+  const graphConfigPath = `${graphDir}/networks.json`;
+  let graphConfig;
+  try {
+    if (fs.existsSync(graphConfigPath)) {
+      graphConfig = fs.readFileSync(graphConfigPath).toString();
+    } else {
+      graphConfig = "{}";
+    }
+  } catch (e) {
+    console.log(e);
+  }
+
+  graphConfig = JSON.parse(graphConfig);
+  if (!(networkName in graphConfig)) {
+    graphConfig[networkName] = {};
+  }
+  if (!(contractName in graphConfig[networkName])) {
+    graphConfig[networkName][contractName] = {};
+  }
+  graphConfig[networkName][contractName].address = contract.address;
+
+  fs.writeFileSync(graphConfigPath, JSON.stringify(graphConfig, null, 2));
+  if (!fs.existsSync(`${graphDir}/abis`)) fs.mkdirSync(`${graphDir}/abis`);
+  fs.writeFileSync(
+    `${graphDir}/abis/${networkName}_${contractName}.json`,
+    JSON.stringify(contract.abi, null, 2)
+  );
+
   return ({
     "contractName": contractName,
     "chainId": chainId,

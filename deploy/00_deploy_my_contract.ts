@@ -1,4 +1,4 @@
-const config = require("../cross/config.ts");
+const config = require("../handle/cross/config.ts");
 
 module.exports = async ({ getNamedAccounts, deployments }: { getNamedAccounts: any, deployments: any }) => {
   const { deploy } = deployments;

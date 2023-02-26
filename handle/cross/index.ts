@@ -1,4 +1,4 @@
-const deployContractsData = require("../deploy-contracts.json");
+const deployContractsData = require("../../deploy-contracts.json");
 const config = require("./config.ts");
 import { task } from "hardhat/config";
 

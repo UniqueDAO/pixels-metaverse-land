@@ -1,13 +1,17 @@
 {
-  "name": "layerzero-tutorial",
+  "name": "@unique-dao/hardhat",
   "proxy": "http://127.0.0.1:7890",
   "scripts": {
     "chain": "hardhat node",
-    "test": "hardhat test",
+    "t:pm": "hardhat test ./test/index.ts",
+    "t:pml": "hardhat test ./test/land.ts",
     "compile": "hardhat compile",
     "deploy": "hardhat deploy",
+    "d:pm": "yarn deploy --tags PixelsMetaverse --export-all '../pm-app/src/contracts/pm_hardhat_contracts.json'",
+    "d:pml": "yarn deploy --tags PMLand --export-all '../pm-app/src/contracts/pml_hardhat_contracts.json'",
     "postdeploy": "hardhat run scripts/publish.ts",
-    "cross": "hardhat cross",
+    "s:pml": "hardhat cross",
+    "s:pm": "hardhat cross",
     "push": "git add . && git commit -m 'update' && git push"
   },
   "devDependencies": {
@@ -16,7 +20,7 @@
     "@nomiclabs/hardhat-ethers": "^2.2.1",
     "@nomiclabs/hardhat-etherscan": "^3.1.2",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
-    "@openzeppelin/contracts": "^4.7.3",
+    "@openzeppelin/contracts": "^4.8.1",
     "@typechain/ethers-v5": "^7.2.0",
     "@typechain/hardhat": "^2.3.1",
     "@types/chai": "^4.3.4",
